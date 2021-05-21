@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		2C0C943D2655F71200DC8606 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C0C943C2655F71200DC8606 /* Preview Assets.xcassets */; };
 		2C0C94482655F71200DC8606 /* KoombeaTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C94472655F71200DC8606 /* KoombeaTestTests.swift */; };
 		2C0C94532655F71200DC8606 /* KoombeaTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C94522655F71200DC8606 /* KoombeaTestUITests.swift */; };
+		2C0C94622656021A00DC8606 /* CouchbaseLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C0C94612656021A00DC8606 /* CouchbaseLiteSwift */; };
+		2C0C94652656960A00DC8606 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2C0C94642656960A00DC8606 /* SDWebImageSwiftUI */; };
+		2C7EE06926585F2900C9589F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7EE06826585F2900C9589F /* Introspect */; };
+		2C7EE06C26586AFC00C9589F /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7EE06B26586AFC00C9589F /* SwiftUIPullToRefresh */; };
+		2C7EE06F26586E5A00C9589F /* UserInTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE06E26586E5A00C9589F /* UserInTimeline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,7 @@
 		2C0C944E2655F71200DC8606 /* KoombeaTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoombeaTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0C94522655F71200DC8606 /* KoombeaTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoombeaTestUITests.swift; sourceTree = "<group>"; };
 		2C0C94542655F71200DC8606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C7EE06E26586E5A00C9589F /* UserInTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInTimeline.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0C94652656960A00DC8606 /* SDWebImageSwiftUI in Frameworks */,
+				2C7EE06926585F2900C9589F /* Introspect in Frameworks */,
+				2C7EE06C26586AFC00C9589F /* SwiftUIPullToRefresh in Frameworks */,
+				2C0C94622656021A00DC8606 /* CouchbaseLiteSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +105,10 @@
 		2C0C94342655F71000DC8606 /* KoombeaTest */ = {
 			isa = PBXGroup;
 			children = (
+				2C7EE070265871B800C9589F /* Model */,
+				2C0C94672656967900DC8606 /* Components */,
+				2C0C94662656966F00DC8606 /* Screens */,
 				2C0C94352655F71000DC8606 /* KoombeaTestApp.swift */,
-				2C0C94372655F71000DC8606 /* ContentView.swift */,
 				2C0C94392655F71200DC8606 /* Assets.xcassets */,
 				2C0C943E2655F71200DC8606 /* Info.plist */,
 				2C0C943B2655F71200DC8606 /* Preview Content */,
@@ -130,6 +142,53 @@
 			path = KoombeaTestUITests;
 			sourceTree = "<group>";
 		};
+		2C0C94662656966F00DC8606 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C94372655F71000DC8606 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2C0C94672656967900DC8606 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE0622658361100C9589F /* List */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2C7EE0622658361100C9589F /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE06D26586E0A00C9589F /*  User */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2C7EE06D26586E0A00C9589F /*  User */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE06E26586E5A00C9589F /* UserInTimeline.swift */,
+			);
+			path = " User";
+			sourceTree = "<group>";
+		};
+		2C7EE070265871B800C9589F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE071265871C300C9589F /* UI */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C7EE071265871C300C9589F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +205,12 @@
 			dependencies = (
 			);
 			name = KoombeaTest;
+			packageProductDependencies = (
+				2C0C94612656021A00DC8606 /* CouchbaseLiteSwift */,
+				2C0C94642656960A00DC8606 /* SDWebImageSwiftUI */,
+				2C7EE06826585F2900C9589F /* Introspect */,
+				2C7EE06B26586AFC00C9589F /* SwiftUIPullToRefresh */,
+			);
 			productName = KoombeaTest;
 			productReference = 2C0C94322655F71000DC8606 /* KoombeaTest.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +282,12 @@
 				Base,
 			);
 			mainGroup = 2C0C94292655F71000DC8606;
+			packageReferences = (
+				2C0C94602656021A00DC8606 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */,
+				2C0C94632656960A00DC8606 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				2C7EE06726585F2900C9589F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				2C7EE06A26586AFC00C9589F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+			);
 			productRefGroup = 2C0C94332655F71000DC8606 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7EE06F26586E5A00C9589F /* UserInTimeline.swift in Sources */,
 				2C0C94382655F71000DC8606 /* ContentView.swift in Sources */,
 				2C0C94362655F71000DC8606 /* KoombeaTestApp.swift in Sources */,
 			);
@@ -574,6 +646,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C0C94602656021A00DC8606 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/couchbase/couchbase-lite-swift-ee.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		2C0C94632656960A00DC8606 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+		2C7EE06726585F2900C9589F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
+		2C7EE06A26586AFC00C9589F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/phuhuynh2411/SwiftUI-PullToRefresh.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C0C94612656021A00DC8606 /* CouchbaseLiteSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C0C94602656021A00DC8606 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */;
+			productName = CouchbaseLiteSwift;
+		};
+		2C0C94642656960A00DC8606 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C0C94632656960A00DC8606 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		2C7EE06826585F2900C9589F /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7EE06726585F2900C9589F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		2C7EE06B26586AFC00C9589F /* SwiftUIPullToRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7EE06A26586AFC00C9589F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
+			productName = SwiftUIPullToRefresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C0C942A2655F71000DC8606 /* Project object */;
 }
