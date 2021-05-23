@@ -18,6 +18,9 @@
 		2C7EE06926585F2900C9589F /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7EE06826585F2900C9589F /* Introspect */; };
 		2C7EE06C26586AFC00C9589F /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7EE06B26586AFC00C9589F /* SwiftUIPullToRefresh */; };
 		2C7EE06F26586E5A00C9589F /* UserInTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE06E26586E5A00C9589F /* UserInTimeline.swift */; };
+		2C7EE07426593C1F00C9589F /* MainRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE07326593C1F00C9589F /* MainRepo.swift */; };
+		2C7EE076265AAA9100C9589F /* DocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE075265AAA9100C9589F /* DocumentType.swift */; };
+		2C7EE079265AAE2500C9589F /* PostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE078265AAE2500C9589F /* PostsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		2C0C94522655F71200DC8606 /* KoombeaTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoombeaTestUITests.swift; sourceTree = "<group>"; };
 		2C0C94542655F71200DC8606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C7EE06E26586E5A00C9589F /* UserInTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInTimeline.swift; sourceTree = "<group>"; };
+		2C7EE07326593C1F00C9589F /* MainRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepo.swift; sourceTree = "<group>"; };
+		2C7EE075265AAA9100C9589F /* DocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentType.swift; sourceTree = "<group>"; };
+		2C7EE078265AAE2500C9589F /* PostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		2C0C94342655F71000DC8606 /* KoombeaTest */ = {
 			isa = PBXGroup;
 			children = (
+				2C7EE0722659342F00C9589F /* Repo */,
 				2C7EE070265871B800C9589F /* Model */,
 				2C0C94672656967900DC8606 /* Components */,
 				2C0C94662656966F00DC8606 /* Screens */,
@@ -177,6 +184,7 @@
 		2C7EE070265871B800C9589F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C7EE077265AAE1400C9589F /* Response */,
 				2C7EE071265871C300C9589F /* UI */,
 			);
 			path = Model;
@@ -187,6 +195,23 @@
 			children = (
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		2C7EE0722659342F00C9589F /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE07326593C1F00C9589F /* MainRepo.swift */,
+				2C7EE075265AAA9100C9589F /* DocumentType.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		2C7EE077265AAE1400C9589F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE078265AAE2500C9589F /* PostsResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,9 +355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7EE07426593C1F00C9589F /* MainRepo.swift in Sources */,
 				2C7EE06F26586E5A00C9589F /* UserInTimeline.swift in Sources */,
+				2C7EE076265AAA9100C9589F /* DocumentType.swift in Sources */,
 				2C0C94382655F71000DC8606 /* ContentView.swift in Sources */,
 				2C0C94362655F71000DC8606 /* KoombeaTestApp.swift in Sources */,
+				2C7EE079265AAE2500C9589F /* PostsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
