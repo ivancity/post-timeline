@@ -2,9 +2,11 @@ import SwiftUI
 import CouchbaseLiteSwift
 import SwiftUIPullToRefresh
 
-struct ContentView: View {
+struct HomeView: View {
     @State var numbers:[Int] = [23,45,76,54,76,3465,24,423]
     @State var showRefreshView: Bool = false
+    
+    @StateObject var viewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
         RefreshableList(showRefreshView: $showRefreshView, action:{
@@ -20,11 +22,14 @@ struct ContentView: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.onStartView()
+        }
     }
     
     func generateRandomNumbers() -> [Int] {
         var sequence = [Int]()
-        for _ in 0...30 {
+        for _ in 0...1 {
             sequence.append(Int.random(in: 0 ..< 100))
         }
         return sequence
@@ -33,6 +38,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

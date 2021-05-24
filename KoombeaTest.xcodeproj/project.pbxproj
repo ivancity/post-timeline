@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C0C94362655F71000DC8606 /* KoombeaTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C94352655F71000DC8606 /* KoombeaTestApp.swift */; };
-		2C0C94382655F71000DC8606 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C94372655F71000DC8606 /* ContentView.swift */; };
+		2C0C94382655F71000DC8606 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C94372655F71000DC8606 /* HomeView.swift */; };
 		2C0C943A2655F71200DC8606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C0C94392655F71200DC8606 /* Assets.xcassets */; };
 		2C0C943D2655F71200DC8606 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C0C943C2655F71200DC8606 /* Preview Assets.xcassets */; };
 		2C0C94482655F71200DC8606 /* KoombeaTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0C94472655F71200DC8606 /* KoombeaTestTests.swift */; };
@@ -21,6 +21,10 @@
 		2C7EE07426593C1F00C9589F /* MainRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE07326593C1F00C9589F /* MainRepo.swift */; };
 		2C7EE076265AAA9100C9589F /* DocumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE075265AAA9100C9589F /* DocumentType.swift */; };
 		2C7EE079265AAE2500C9589F /* PostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE078265AAE2500C9589F /* PostsResponse.swift */; };
+		2C7EE07E265AB16200C9589F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2C7EE07D265AB16200C9589F /* Alamofire */; };
+		2C7EE080265AB1B700C9589F /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE07F265AB1B700C9589F /* NetworkRequestManager.swift */; };
+		2C7EE083265AB49B00C9589F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE082265AB49B00C9589F /* HomeViewModel.swift */; };
+		2C7EE085265B27E500C9589F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE084265B27E500C9589F /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +47,7 @@
 /* Begin PBXFileReference section */
 		2C0C94322655F71000DC8606 /* KoombeaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KoombeaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0C94352655F71000DC8606 /* KoombeaTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoombeaTestApp.swift; sourceTree = "<group>"; };
-		2C0C94372655F71000DC8606 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2C0C94372655F71000DC8606 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2C0C94392655F71200DC8606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C0C943C2655F71200DC8606 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C0C943E2655F71200DC8606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +61,9 @@
 		2C7EE07326593C1F00C9589F /* MainRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepo.swift; sourceTree = "<group>"; };
 		2C7EE075265AAA9100C9589F /* DocumentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentType.swift; sourceTree = "<group>"; };
 		2C7EE078265AAE2500C9589F /* PostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponse.swift; sourceTree = "<group>"; };
+		2C7EE07F265AB1B700C9589F /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
+		2C7EE082265AB49B00C9589F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2C7EE084265B27E500C9589F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7EE07E265AB16200C9589F /* Alamofire in Frameworks */,
 				2C0C94652656960A00DC8606 /* SDWebImageSwiftUI in Frameworks */,
 				2C7EE06926585F2900C9589F /* Introspect in Frameworks */,
 				2C7EE06C26586AFC00C9589F /* SwiftUIPullToRefresh in Frameworks */,
@@ -111,6 +119,7 @@
 		2C0C94342655F71000DC8606 /* KoombeaTest */ = {
 			isa = PBXGroup;
 			children = (
+				2C7EE07A265AB04100C9589F /* Services */,
 				2C7EE0722659342F00C9589F /* Repo */,
 				2C7EE070265871B800C9589F /* Model */,
 				2C0C94672656967900DC8606 /* Components */,
@@ -152,7 +161,7 @@
 		2C0C94662656966F00DC8606 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2C0C94372655F71000DC8606 /* ContentView.swift */,
+				2C7EE081265AB45700C9589F /* Home */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 			children = (
 				2C7EE07326593C1F00C9589F /* MainRepo.swift */,
 				2C7EE075265AAA9100C9589F /* DocumentType.swift */,
+				2C7EE084265B27E500C9589F /* Keys.swift */,
 			);
 			path = Repo;
 			sourceTree = "<group>";
@@ -212,6 +222,31 @@
 				2C7EE078265AAE2500C9589F /* PostsResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		2C7EE07A265AB04100C9589F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE07B265AB04C00C9589F /* Remote */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2C7EE07B265AB04C00C9589F /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				2C7EE07F265AB1B700C9589F /* NetworkRequestManager.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		2C7EE081265AB45700C9589F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2C0C94372655F71000DC8606 /* HomeView.swift */,
+				2C7EE082265AB49B00C9589F /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +270,7 @@
 				2C0C94642656960A00DC8606 /* SDWebImageSwiftUI */,
 				2C7EE06826585F2900C9589F /* Introspect */,
 				2C7EE06B26586AFC00C9589F /* SwiftUIPullToRefresh */,
+				2C7EE07D265AB16200C9589F /* Alamofire */,
 			);
 			productName = KoombeaTest;
 			productReference = 2C0C94322655F71000DC8606 /* KoombeaTest.app */;
@@ -312,6 +348,7 @@
 				2C0C94632656960A00DC8606 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				2C7EE06726585F2900C9589F /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				2C7EE06A26586AFC00C9589F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+				2C7EE07C265AB16200C9589F /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 2C0C94332655F71000DC8606 /* Products */;
 			projectDirPath = "";
@@ -358,9 +395,12 @@
 				2C7EE07426593C1F00C9589F /* MainRepo.swift in Sources */,
 				2C7EE06F26586E5A00C9589F /* UserInTimeline.swift in Sources */,
 				2C7EE076265AAA9100C9589F /* DocumentType.swift in Sources */,
-				2C0C94382655F71000DC8606 /* ContentView.swift in Sources */,
+				2C7EE083265AB49B00C9589F /* HomeViewModel.swift in Sources */,
+				2C0C94382655F71000DC8606 /* HomeView.swift in Sources */,
 				2C0C94362655F71000DC8606 /* KoombeaTestApp.swift in Sources */,
 				2C7EE079265AAE2500C9589F /* PostsResponse.swift in Sources */,
+				2C7EE085265B27E500C9589F /* Keys.swift in Sources */,
+				2C7EE080265AB1B700C9589F /* NetworkRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +748,14 @@
 				minimumVersion = 1.0.6;
 			};
 		};
+		2C7EE07C265AB16200C9589F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -730,6 +778,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C7EE06A26586AFC00C9589F /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
 			productName = SwiftUIPullToRefresh;
+		};
+		2C7EE07D265AB16200C9589F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C7EE07C265AB16200C9589F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

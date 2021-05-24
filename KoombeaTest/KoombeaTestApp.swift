@@ -4,7 +4,7 @@ import SwiftUI
 struct KoombeaTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
