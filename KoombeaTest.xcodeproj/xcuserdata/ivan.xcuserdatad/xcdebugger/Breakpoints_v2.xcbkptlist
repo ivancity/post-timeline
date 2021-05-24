@@ -103,64 +103,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8B6D4052-B032-48F2-A7E2-552AC3778DAB"
+            uuid = "984CE95A-70DF-41DF-9F18-7B7344A1FAB5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KoombeaTest/Repo/MainRepo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "getAllPosts()"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "getUserPosts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B3647DB-1C26-4891-9D09-2D8D1458D408"
+            uuid = "78C10E46-E6F3-4D70-AC23-D692330FF15B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KoombeaTest/Repo/MainRepo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "add(userPost:)"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "getUserPosts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "380E6B1E-805B-449F-83B4-AC1F90ADB093"
+            uuid = "CED49F64-C781-4004-8022-4DE964DDA9C7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KoombeaTest/Repo/MainRepo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "add(userPost:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AA1D2866-E7D2-45EC-8435-A6A015FBE8E0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KoombeaTest/Repo/MainRepo.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "add(userPost:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "getUserPosts()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

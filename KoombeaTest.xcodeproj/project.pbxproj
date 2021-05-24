@@ -25,6 +25,7 @@
 		2C7EE080265AB1B700C9589F /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE07F265AB1B700C9589F /* NetworkRequestManager.swift */; };
 		2C7EE083265AB49B00C9589F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE082265AB49B00C9589F /* HomeViewModel.swift */; };
 		2C7EE085265B27E500C9589F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE084265B27E500C9589F /* Keys.swift */; };
+		2C7EE087265B53CC00C9589F /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7EE086265B53CC00C9589F /* Posts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		2C7EE07F265AB1B700C9589F /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
 		2C7EE082265AB49B00C9589F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2C7EE084265B27E500C9589F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		2C7EE086265B53CC00C9589F /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		2C7EE071265871C300C9589F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C7EE086265B53CC00C9589F /* Posts.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				2C7EE06F26586E5A00C9589F /* UserInTimeline.swift in Sources */,
 				2C7EE076265AAA9100C9589F /* DocumentType.swift in Sources */,
 				2C7EE083265AB49B00C9589F /* HomeViewModel.swift in Sources */,
+				2C7EE087265B53CC00C9589F /* Posts.swift in Sources */,
 				2C0C94382655F71000DC8606 /* HomeView.swift in Sources */,
 				2C0C94362655F71000DC8606 /* KoombeaTestApp.swift in Sources */,
 				2C7EE079265AAE2500C9589F /* PostsResponse.swift in Sources */,

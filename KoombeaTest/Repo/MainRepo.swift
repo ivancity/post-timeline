@@ -15,25 +15,30 @@ struct MainRepo {
         }
     }
     
-    func getAllPosts() {
+    func getAllPosts(completion: @escaping((Int) -> Void)) {
         NetworkRequestManager.getAllPosts() { postsResponse in
             print("incoming from network")
             guard let response = postsResponse else {
                 print("error no response from post endpoint")
+                completion(0)
                 return
             }
-            handlePostsFrom(postsResponse: response)
+            handlePostsFrom(postsResponse: response, completion: completion)
         }
     }
 
-    private func handlePostsFrom(postsResponse: PostsResponse) {
+    private func handlePostsFrom(postsResponse: PostsResponse, completion: @escaping((Int) -> Void)) {
+        var counter = 0
         for data in postsResponse.data {
-            add(userPost: data)
+            if add(userPost: data) {
+                counter += 1
+            }
         }
+        completion(counter)
     }
     
-    private func add(userPost: PostResponseUser) {
-        let arrayObject = MutableArrayObject.init(data: userPost.posts)
+    private func add(userPost: PostResponseUser) -> Bool {
+        let arrayObject = userPost.postsAsArrayObject()
         let mutableDoc = MutableDocument()
             .setString(userPost.uid, forKey: UserPostKeys.uid.rawValue)
             .setString(userPost.name, forKey: UserPostKeys.name.rawValue)
@@ -41,12 +46,69 @@ struct MainRepo {
             .setString(userPost.profilePic, forKey: UserPostKeys.profilePic.rawValue)
             .setArray(arrayObject, forKey: UserPostKeys.posts.rawValue)
             .setString(DocumentType.user.rawValue, forKey: "type")
-
         do {
-          try database.saveDocument(mutableDoc)
+            try database.saveDocument(mutableDoc)
+            return true
         } catch {
-          fatalError("Error saving document")
+            print("Error saving document")
+            return false
         }
+    }
+    
+    func getUserPosts() -> [UserPost] {
+      var userPosts: [UserPost] = []
+
+      let query = QueryBuilder
+        .select(SelectResult.all(),
+                SelectResult.expression(Meta.id))
+        .from(DataSource.database(database))
+        .where(Expression.property("type").equalTo(Expression.string(DocumentType.user.rawValue)))
+
+      do {
+        for result in try query.execute() {
+            guard let dict = result.dictionary(forKey: databaseName),
+                  let name = dict.string(forKey: UserPostKeys.name.rawValue),
+                  let uid = dict.string(forKey: UserPostKeys.uid.rawValue),
+                  let email = dict.string(forKey: UserPostKeys.email.rawValue),
+                  let profilePic = dict.string(forKey: UserPostKeys.profilePic.rawValue) else {
+                  continue
+            }
+            var posts = [Post]()
+            if let userPosts = dict.array(forKey: UserPostKeys.posts.rawValue) {
+                for userPost in userPosts {
+                    guard let dictionaryObject = userPost as? DictionaryObject,
+                          let date = dictionaryObject.string(forKey: PostKeys.date.rawValue) else {
+                        continue
+                    }
+                    let pics = generatePicsArray(dictionaryObject: dictionaryObject)
+                    let id = dictionaryObject.int(forKey: PostKeys.id.rawValue)
+                    let post = Post(id: id, date: date, pics: pics)
+                    posts.append(post)
+                }
+            }
+            
+            let userPost = UserPost(uid: uid, name: name, email: email, profilePic: profilePic, posts: posts)
+            userPosts.append(userPost)
+        }
+      } catch {
+        print("Error running the query")
+        return []
+      }
+
+      return userPosts
+    }
+    
+    private func generatePicsArray(dictionaryObject: DictionaryObject) -> [String] {
+        var pics = [String]()
+        if let picsArrayObject = dictionaryObject.array(forKey: PostKeys.pics.rawValue) {
+            for picItem in picsArrayObject {
+                guard let pic = picItem as? String else {
+                    continue
+                }
+                pics.append(pic)
+            }
+        }
+        return pics
     }
     
 }

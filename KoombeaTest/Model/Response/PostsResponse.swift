@@ -19,7 +19,7 @@ struct PostResponseUser: Codable {
         case posts
     }
     
-    func postsAsDictionary() -> MutableArrayObject {
+    func postsAsArrayObject() -> MutableArrayObject {
         let arrayData = MutableArrayObject()
         for post in posts {
             let dict = post.incomingPostAsDictionary()
