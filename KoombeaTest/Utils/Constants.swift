@@ -7,7 +7,9 @@ struct AppDimensions {
     // general
     static let verticalSpacing1: CGFloat = 12
     static let verticalSpacing2: CGFloat = 15
+    static let verticalSpacing3: CGFloat = 40
     static let horizontalSpacing1: CGFloat = 8
+    static let horizontalSpacing2: CGFloat = 10
     
     // font
     static let smallLabel1: CGFloat = 11

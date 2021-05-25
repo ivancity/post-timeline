@@ -15,8 +15,9 @@ class HomeViewModel: ObservableObject {
     @Published var showRefreshView = false
     
     func handleOnAppear() {
-        //loadUI()
-        onStartView()
+        if loadUI() < 1 {
+            onStartView()
+        }
     }
     
     func onStartView() {
@@ -24,16 +25,17 @@ class HomeViewModel: ObservableObject {
         mainRepo.getAllPosts() {[weak self] counter in
             guard counter > 0 else {
                 // TODO we might want to show an error messsage here, or do something else before loading data back to the UI
-                self?.loadUI()
+                let _ = self?.loadUI()
                 self?.showRefreshView = false
                 return
             }
-            self?.loadUI()
+            let _ = self?.loadUI()
             self?.showRefreshView = false
         }
     }
     
-    func loadUI() {
+    func loadUI() -> Int {
         self.userPosts = mainRepo.getUserPosts()
+        return self.userPosts.count
     }
 }
