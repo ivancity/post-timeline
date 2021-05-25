@@ -7,7 +7,7 @@ struct UserPost: Identifiable {
     let posts: [Post]
 }
 
-struct Post {
+struct Post: Identifiable {
     let id: Int
     let date: String
     let pics: [String]

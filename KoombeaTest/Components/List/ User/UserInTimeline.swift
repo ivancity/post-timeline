@@ -11,12 +11,12 @@ struct UserInTimeline: View {
                         email: userPost.email)
             )
             .background(Color.red)
-            Text("REst of ui here \(userPost.name)")
-            Text("REst of ui here \(userPost.name)")
-            Text("REst of ui here \(userPost.name)")
-            Text("REst of ui here \(userPost.name)")
-            
-            
+            ForEach(userPost.posts) { post in
+                PostListItem(postItem:
+                                PostItemModel(date: post.date,
+                                              pics: post.pics)
+                )
+            }
         }
         .background(Color.blue)
     }
