@@ -11,9 +11,12 @@ struct AppDimensions {
     // font
     static let smallLabel1: CGFloat = 11
     static let smallLabel2: CGFloat = 12
-    
     static let lineHeight1: CGFloat = 13
     static let lineHeight2: CGFloat = 14
+    
+    // image
+    static let messagePadding: CGFloat = 10
+    static let imageHorizontalSpacing: CGFloat = 11
 }
 
 struct AppFonts {

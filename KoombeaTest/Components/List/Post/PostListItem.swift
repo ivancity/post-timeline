@@ -22,28 +22,22 @@ struct PostListItem: View {
                             AppFonts.Primary,
                             size: AppDimensions.smallLabel1))
                     .lineSpacing(AppDimensions.lineHeight1)
+                    .padding(AppDimensions.messagePadding)
             } else if postItem.pics.count == 1 {
-                WebImage(
-                    url: URL(string: postItem.pics.first!)
-                )
-                .resizable()
-                .scaledToFill()
-                .frame(
-                    maxWidth: .infinity,
-                    alignment: .center
-                )
+                SingleImageView(urlString: postItem.pics.first!)
             } else if postItem.pics.count == 2 {
-                Text("2 boxes")
+                MultipleImageView(pics: postItem.pics)
             } else if postItem.pics.count == 3 {
-                Text("3 boxes")
+                VStack {
+                    SingleImageView(urlString: postItem.pics.first!)
+                    MultipleImageView(pics: Array(postItem.pics.dropFirst()))
+                }
             } else if postItem.pics.count >= 4 {
-                Text("4 boxes plus")
+                VStack {
+                    SingleImageView(urlString: postItem.pics.first!)
+                    MultipleImageView(pics: Array(postItem.pics.dropFirst()))
+                }
             }
-                
-//            ForEach(postItem.pics, id: \.self) { pic in
-//                Text(pic)
-//                    .padding(.vertical, 9)
-//            }
         }
     }
 }
