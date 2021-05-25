@@ -3,36 +3,33 @@ import CouchbaseLiteSwift
 import SwiftUIPullToRefresh
 
 struct HomeView: View {
-    @State var numbers:[Int] = [23,45,76,54,76,3465,24,423]
-    @State var showRefreshView: Bool = false
-    
     @StateObject var viewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
-        RefreshableList(showRefreshView: $showRefreshView, action:{
-            self.numbers = self.generateRandomNumbers()
-            // Remember to set the showRefreshView to false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.showRefreshView = false
-            }
-        }){
-            ForEach(self.numbers, id: \.self){ number in
-                VStack(alignment: .leading){
-                    UserInTimeline(id: number)
+        VStack {
+            if viewModel.userPosts.count < 1 {
+                Text("Unable to find posts at this moment, try again later.")
+                    .padding(.horizontal, 10)
+            } else {
+                RefreshableList(showRefreshView: $viewModel.showRefreshView, action:{
+                    // Remember to set the showRefreshView to false
+                    viewModel.onStartView()
+                }){
+                    ForEach(self.viewModel.userPosts){ userPost in
+                        VStack(alignment: .leading){
+                            UserInTimeline(userPost: userPost)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(Color.yellow)
+                    }
                 }
+                .background(Color.green)
             }
         }
         .onAppear {
-            viewModel.onStartView()
+            viewModel.handleOnAppear()
         }
-    }
-    
-    func generateRandomNumbers() -> [Int] {
-        var sequence = [Int]()
-        for _ in 0...1 {
-            sequence.append(Int.random(in: 0 ..< 100))
-        }
-        return sequence
+        .background(Color.purple)
     }
 }
 

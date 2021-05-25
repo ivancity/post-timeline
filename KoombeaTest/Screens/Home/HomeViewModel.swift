@@ -11,21 +11,29 @@ class HomeViewModel: ObservableObject {
     
     let mainRepo = MainRepo()
     
+    @Published var userPosts: [UserPost] = []
+    @Published var showRefreshView = false
+    
+    func handleOnAppear() {
+        //loadUI()
+        onStartView()
+    }
+    
     func onStartView() {
+        showRefreshView = true
         mainRepo.getAllPosts() {[weak self] counter in
             guard counter > 0 else {
-                print("not able to get posts")
-                // update UI
+                // TODO we might want to show an error messsage here, or do something else before loading data back to the UI
                 self?.loadUI()
+                self?.showRefreshView = false
                 return
             }
-            // update UI
             self?.loadUI()
+            self?.showRefreshView = false
         }
     }
     
     func loadUI() {
-        let userPosts = mainRepo.getUserPosts()
-        print("here")
+        self.userPosts = mainRepo.getUserPosts()
     }
 }

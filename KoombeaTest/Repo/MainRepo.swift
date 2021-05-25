@@ -17,7 +17,6 @@ struct MainRepo {
     
     func getAllPosts(completion: @escaping((Int) -> Void)) {
         NetworkRequestManager.getAllPosts() { postsResponse in
-            print("incoming from network")
             guard let response = postsResponse else {
                 print("error no response from post endpoint")
                 completion(0)
@@ -29,6 +28,9 @@ struct MainRepo {
 
     private func handlePostsFrom(postsResponse: PostsResponse, completion: @escaping((Int) -> Void)) {
         var counter = 0
+        if postsResponse.data.count > 0 {
+            clearUserPosts()
+        }
         for data in postsResponse.data {
             if add(userPost: data) {
                 counter += 1
@@ -55,6 +57,33 @@ struct MainRepo {
         }
     }
     
+    private func clearUserPosts() {
+        let query = QueryBuilder
+          .select(SelectResult.all(),
+                  SelectResult.expression(Meta.id))
+          .from(DataSource.database(database))
+          .where(Expression.property("type").equalTo(Expression.string(DocumentType.user.rawValue)))
+        do {
+            for result in try query.execute() {
+                guard let idFound = result.string(forKey: "id") else { continue }
+                delete(by: idFound)
+            }
+        } catch {
+            print("Something went wrong with clear user posts")
+        }
+    }
+    
+    private func delete(by id: String) {
+        guard let document = database.document(withID: id) else {
+            return
+        }
+        do {
+          try database.deleteDocument(document)
+        } catch {
+          fatalError("Error deleting document")
+        }
+    }
+    
     func getUserPosts() -> [UserPost] {
       var userPosts: [UserPost] = []
 
@@ -73,20 +102,7 @@ struct MainRepo {
                   let profilePic = dict.string(forKey: UserPostKeys.profilePic.rawValue) else {
                   continue
             }
-            var posts = [Post]()
-            if let userPosts = dict.array(forKey: UserPostKeys.posts.rawValue) {
-                for userPost in userPosts {
-                    guard let dictionaryObject = userPost as? DictionaryObject,
-                          let date = dictionaryObject.string(forKey: PostKeys.date.rawValue) else {
-                        continue
-                    }
-                    let pics = generatePicsArray(dictionaryObject: dictionaryObject)
-                    let id = dictionaryObject.int(forKey: PostKeys.id.rawValue)
-                    let post = Post(id: id, date: date, pics: pics)
-                    posts.append(post)
-                }
-            }
-            
+            let posts = generatePostArray(dict: dict)
             let userPost = UserPost(uid: uid, name: name, email: email, profilePic: profilePic, posts: posts)
             userPosts.append(userPost)
         }
@@ -96,6 +112,23 @@ struct MainRepo {
       }
 
       return userPosts
+    }
+    
+    private func generatePostArray(dict: DictionaryObject) -> [Post] {
+        var posts = [Post]()
+        if let userPosts = dict.array(forKey: UserPostKeys.posts.rawValue) {
+            for userPost in userPosts {
+                guard let dictionaryObject = userPost as? DictionaryObject,
+                      let date = dictionaryObject.string(forKey: PostKeys.date.rawValue) else {
+                    continue
+                }
+                let pics = generatePicsArray(dictionaryObject: dictionaryObject)
+                let id = dictionaryObject.int(forKey: PostKeys.id.rawValue)
+                let post = Post(id: id, date: date, pics: pics)
+                posts.append(post)
+            }
+        }
+        return posts
     }
     
     private func generatePicsArray(dictionaryObject: DictionaryObject) -> [String] {

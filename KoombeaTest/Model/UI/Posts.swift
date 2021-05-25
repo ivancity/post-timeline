@@ -1,6 +1,7 @@
 import Foundation
 
-struct UserPost {
+struct UserPost: Identifiable {
+    let id = UUID()
     let uid, name, email: String
     let profilePic: String
     let posts: [Post]
