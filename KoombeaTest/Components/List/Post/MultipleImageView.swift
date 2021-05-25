@@ -38,11 +38,11 @@ struct MultipleImageView: View {
                         .frame(
                             width: width * 0.35,
                             height: width * 0.35
-//                            alignment: .center
                         )
                     }
                 }
             }
+
         }
     }
 }

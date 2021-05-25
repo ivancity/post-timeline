@@ -10,7 +10,6 @@ struct UserInTimeline: View {
                         name: userPost.name,
                         email: userPost.email)
             )
-            .background(Color.red)
             ForEach(userPost.posts) { post in
                 PostListItem(postItem:
                                 PostItemModel(date: post.date,
@@ -18,7 +17,6 @@ struct UserInTimeline: View {
                 )
             }
         }
-        .background(Color.blue)
     }
 }
 

@@ -13,7 +13,7 @@ struct PostListItem: View {
                         AppFonts.Primary,
                         size: AppDimensions.smallLabel1))
                 .lineSpacing(AppDimensions.lineHeight1)
-            
+                .padding(.vertical, AppDimensions.verticalSpacing2)
             if postItem.pics.count == 0 {
                 Text("No pics for this day")
                     .fontWeight(.regular)
@@ -31,11 +31,13 @@ struct PostListItem: View {
                 VStack {
                     SingleImageView(urlString: postItem.pics.first!)
                     MultipleImageView(pics: Array(postItem.pics.dropFirst()))
+                        .padding(.top, AppDimensions.verticalSpacing1)
                 }
             } else if postItem.pics.count >= 4 {
                 VStack {
                     SingleImageView(urlString: postItem.pics.first!)
                     MultipleImageView(pics: Array(postItem.pics.dropFirst()))
+                        .padding(.top, AppDimensions.verticalSpacing1)
                 }
             }
         }

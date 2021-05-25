@@ -20,16 +20,13 @@ struct HomeView: View {
                             UserInTimeline(userPost: userPost)
                         }
                         .frame(maxWidth: .infinity)
-                        .background(Color.yellow)
                     }
                 }
-                .background(Color.green)
             }
         }
         .onAppear {
             viewModel.handleOnAppear()
         }
-        .background(Color.purple)
     }
 }
 
