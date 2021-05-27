@@ -7,20 +7,28 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            RefreshableList(showRefreshView: $viewModel.showRefreshView, action:{
-                viewModel.onStartView()
-            }){
-                if viewModel.userPosts.count < 1 {
-                    Text("Unable to find posts at this moment, try again later.")
-                        .padding(.horizontal, AppDimensions.horizontalSpacing2)
-                        .padding(.vertical, AppDimensions.verticalSpacing3)
-                } else {
-                    ForEach(self.viewModel.userPosts){ userPost in
-                        VStack(alignment: .leading){
-                            UserInTimeline(userPost: userPost)
+            ZStack {
+                RefreshableList(showRefreshView: $viewModel.showRefreshView, action:{
+                    viewModel.onStartView()
+                }){
+                    if viewModel.userPosts.count < 1 {
+                        Text("Unable to find posts at this moment, try again later.")
+                            .padding(.horizontal, AppDimensions.horizontalSpacing2)
+                            .padding(.vertical, AppDimensions.verticalSpacing3)
+                    } else {
+                        ForEach(self.viewModel.userPosts){ userPost in
+                            VStack(alignment: .leading){
+                                UserInTimeline(userPost: userPost,
+                                               imageSelected: $viewModel.imageSelected)
+                            }
+                            .frame(maxWidth: .infinity)
                         }
-                        .frame(maxWidth: .infinity)
                     }
+                }
+                .blur(radius: viewModel.imageSelected != nil ? 20 : 0)
+                if let _ = viewModel.imageSelected {
+                    ImageDetailView(imageSelected: $viewModel.imageSelected)
+                        .transition(.move(edge: .bottom))
                 }
             }
         }

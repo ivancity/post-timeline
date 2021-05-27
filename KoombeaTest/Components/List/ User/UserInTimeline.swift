@@ -2,6 +2,7 @@ import SwiftUI
 
 struct UserInTimeline: View {
     var userPost: UserPost
+    @Binding var imageSelected: ImageSelectedModel?
     
     var body: some View {
         VStack(alignment: .center) {
@@ -13,15 +14,10 @@ struct UserInTimeline: View {
             ForEach(userPost.posts) { post in
                 PostListItem(postItem:
                                 PostItemModel(date: post.date,
-                                              pics: post.pics)
+                                              pics: post.pics),
+                             imageSelected: $imageSelected
                 )
             }
         }
-    }
-}
-
-struct Post_Previews: PreviewProvider {
-    static var previews: some View {
-        UserInTimeline(userPost: UserPost(uid: "uiduid", name: "John Doe", email: "john@doe.com", profilePic: "https://test.com", posts: []))
     }
 }

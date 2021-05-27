@@ -1,10 +1,3 @@
-//
-//  HomeViewModel.swift
-//  KoombeaTest
-//
-//  Created by Ivan on 5/23/21.
-//
-
 import Foundation
 
 class HomeViewModel: ObservableObject {
@@ -13,6 +6,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var userPosts: [UserPost] = []
     @Published var showRefreshView = false
+    @Published var imageSelected: ImageSelectedModel?
     
     func handleOnAppear() {
         if loadUI() < 1 {
