@@ -25,21 +25,14 @@ struct PostListItem: View {
                     .lineSpacing(AppDimensions.lineHeight1)
                     .padding(AppDimensions.messagePadding)
             } else if postItem.pics.count == 1 {
-                SingleImageView(urlString: postItem.pics.first!) { selection in
-                    imageSelected(selection)
-                }
+                SingleImageView(urlString: postItem.pics.first!, imageSelected: imageSelected)
             } else if postItem.pics.count == 2 {
-                MultipleImageView(pics: postItem.pics){ selection in
-                    imageSelected(selection)
-                }
+                MultipleImageView(pics: postItem.pics, imageSelected: imageSelected)
             } else if postItem.pics.count == 3 {
                 VStack {
-                    SingleImageView(urlString: postItem.pics.first!){ selection in
-                        imageSelected(selection)
-                    }
-                    MultipleImageView(pics: Array(postItem.pics.dropFirst())){ selection in
-                        imageSelected(selection)
-                    }
+                    SingleImageView(urlString: postItem.pics.first!, imageSelected: imageSelected)
+                    MultipleImageView(pics: Array(postItem.pics.dropFirst()),
+                                      imageSelected: imageSelected)
                         .padding(.top, AppDimensions.verticalSpacing1)
                 }
             } else if postItem.pics.count >= 4 {

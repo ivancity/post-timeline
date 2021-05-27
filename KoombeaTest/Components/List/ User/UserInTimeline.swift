@@ -14,9 +14,8 @@ struct UserInTimeline: View {
             ForEach(userPost.posts) { post in
                 PostListItem(postItem:
                                 PostItemModel(date: post.date,
-                                              pics: post.pics)){ selection in
-                    imageSelected(selection)
-                }
+                                              pics: post.pics),
+                             imageSelected: imageSelected)
             }
         }
     }

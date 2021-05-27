@@ -28,15 +28,10 @@ struct MultipleImageView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .center, spacing: AppDimensions.imageHorizontalSpacing + 5) {
                     ForEach(pics, id: \.self) { pic in
-                        WebImage(
-                            url: URL(string: pic)
-                        )
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: width * 0.35,
-                            height: width * 0.35
-                        )
+                        ImageItemView(
+                            picUriString: pic,
+                            size: AppDimensions.imageSmall,
+                            imageSelected: imageSelected)
                     }
                 }
             }

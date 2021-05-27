@@ -18,14 +18,12 @@ struct HomeView: View {
                     } else {
                         ForEach(self.viewModel.userPosts){ userPost in
                             UserInTimeline(userPost: userPost) { imageSelected in
-                                guard viewModel.imageSelected == nil else {
-                                    return
-                                }
                                 viewModel.imageSelected = imageSelected
                             }
                         }
                     }
                 }
+                .disabled(viewModel.imageSelected == nil ? false : true)
                 .blur(radius: viewModel.imageSelected != nil ? 20 : 0)
                 if let _ = viewModel.imageSelected {
                     ImageDetailView(imageSelected: $viewModel.imageSelected)

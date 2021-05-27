@@ -25,7 +25,6 @@ struct ImageDetailView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
-                            print("offset \(gesture.translation.height)")
                             self.offset = gesture.translation
                         }
                         .onEnded { _ in
