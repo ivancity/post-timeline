@@ -3,7 +3,7 @@ import SDWebImageSwiftUI
 
 struct PostListItem: View {
     var postItem: PostItemModel
-    @Binding var imageSelected: ImageSelectedModel?
+    let imageSelected: (ImageSelectedModel) -> ()
     
     var body: some View {
         VStack {
@@ -25,19 +25,28 @@ struct PostListItem: View {
                     .lineSpacing(AppDimensions.lineHeight1)
                     .padding(AppDimensions.messagePadding)
             } else if postItem.pics.count == 1 {
-                SingleImageView(urlString: postItem.pics.first!, imageSelected: $imageSelected)
+                SingleImageView(urlString: postItem.pics.first!) { selection in
+                    imageSelected(selection)
+                }
             } else if postItem.pics.count == 2 {
-                MultipleImageView(pics: postItem.pics)
+                MultipleImageView(pics: postItem.pics){ selection in
+                    imageSelected(selection)
+                }
             } else if postItem.pics.count == 3 {
                 VStack {
-                    SingleImageView(urlString: postItem.pics.first!, imageSelected: $imageSelected)
-                    MultipleImageView(pics: Array(postItem.pics.dropFirst()))
+                    SingleImageView(urlString: postItem.pics.first!){ selection in
+                        imageSelected(selection)
+                    }
+                    MultipleImageView(pics: Array(postItem.pics.dropFirst())){ selection in
+                        imageSelected(selection)
+                    }
                         .padding(.top, AppDimensions.verticalSpacing1)
                 }
             } else if postItem.pics.count >= 4 {
                 VStack {
-                    SingleImageView(urlString: postItem.pics.first!, imageSelected: $imageSelected)
-                    MultipleImageView(pics: Array(postItem.pics.dropFirst()))
+                    SingleImageView(urlString: postItem.pics.first!, imageSelected: imageSelected)
+                    MultipleImageView(pics: Array(postItem.pics.dropFirst()),
+                                      imageSelected: imageSelected)
                         .padding(.top, AppDimensions.verticalSpacing1)
                 }
             }

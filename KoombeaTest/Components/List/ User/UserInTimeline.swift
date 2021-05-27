@@ -2,7 +2,7 @@ import SwiftUI
 
 struct UserInTimeline: View {
     var userPost: UserPost
-    @Binding var imageSelected: ImageSelectedModel?
+    let imageSelected: (ImageSelectedModel) -> ()
     
     var body: some View {
         VStack(alignment: .center) {
@@ -14,9 +14,9 @@ struct UserInTimeline: View {
             ForEach(userPost.posts) { post in
                 PostListItem(postItem:
                                 PostItemModel(date: post.date,
-                                              pics: post.pics),
-                             imageSelected: $imageSelected
-                )
+                                              pics: post.pics)){ selection in
+                    imageSelected(selection)
+                }
             }
         }
     }

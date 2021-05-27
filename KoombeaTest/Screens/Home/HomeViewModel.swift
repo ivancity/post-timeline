@@ -6,7 +6,16 @@ class HomeViewModel: ObservableObject {
     
     @Published var userPosts: [UserPost] = []
     @Published var showRefreshView = false
-    @Published var imageSelected: ImageSelectedModel?
+    @Published var imageSelected: ImageSelectedModel? {
+        didSet {
+            if let imageSelected = imageSelected {
+                print("test \(imageSelected.imageUrl)")
+            } else {
+                print("clearing image selected")
+            }
+            
+        }
+    }
     
     func handleOnAppear() {
         if loadUI() < 1 {

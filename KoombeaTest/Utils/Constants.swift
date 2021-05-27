@@ -20,6 +20,8 @@ struct AppDimensions {
     // image
     static let messagePadding: CGFloat = 10
     static let imageHorizontalSpacing: CGFloat = 11
+    static let imageRegular: CGFloat = 0.42
+    static let imageSmall: CGFloat = 0.35
 }
 
 struct AppFonts {

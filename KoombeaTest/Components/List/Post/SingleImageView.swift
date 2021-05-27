@@ -3,11 +3,11 @@ import SwiftUI
 
 struct SingleImageView: View {
     let urlString: String
-    @Binding var imageSelected: ImageSelectedModel?
+    let imageSelected: (ImageSelectedModel) -> ()
     
     var body: some View {
         Button(action: {
-            imageSelected = ImageSelectedModel(imageUrl: urlString)
+            imageSelected(ImageSelectedModel(imageUrl: urlString))
         }) {
             WebImage(
                 url: URL(string: urlString)
@@ -18,5 +18,6 @@ struct SingleImageView: View {
                 maxWidth: .infinity,
                 alignment: .center
             )
-        }    }
+        }
+    }
 }

@@ -3,10 +3,14 @@ import SwiftUI
 
 struct MultipleImageView: View {
     let pics: [String]
-    let width = UIScreen.main.bounds.size.width
+    let imageSelected: (ImageSelectedModel) -> ()
     
-    init(pics: [String]) {
+    private let width = UIScreen.main.bounds.size.width
+    
+    init(pics: [String],
+         imageSelected: @escaping(ImageSelectedModel) -> ()) {
         self.pics = pics
+        self.imageSelected = imageSelected
         UIScrollView.appearance().bounces = false
     }
     
@@ -14,16 +18,10 @@ struct MultipleImageView: View {
         if pics.count < 3 {
             HStack(alignment: .center, spacing: AppDimensions.imageHorizontalSpacing + 5) {
                 ForEach(pics, id: \.self) { pic in
-                    WebImage(
-                        url: URL(string: pic)
-                    )
-                    .resizable()
-                    .scaledToFill()
-                    .frame(
-                        width: width * 0.42,
-                        height: width * 0.42,
-                        alignment: .center
-                    )
+                    ImageItemView(
+                        picUriString: pic,
+                        size: AppDimensions.imageRegular,
+                        imageSelected: imageSelected)
                 }
             }
         } else {

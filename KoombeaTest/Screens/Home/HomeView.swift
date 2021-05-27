@@ -17,11 +17,12 @@ struct HomeView: View {
                             .padding(.vertical, AppDimensions.verticalSpacing3)
                     } else {
                         ForEach(self.viewModel.userPosts){ userPost in
-                            VStack(alignment: .leading){
-                                UserInTimeline(userPost: userPost,
-                                               imageSelected: $viewModel.imageSelected)
+                            UserInTimeline(userPost: userPost) { imageSelected in
+                                guard viewModel.imageSelected == nil else {
+                                    return
+                                }
+                                viewModel.imageSelected = imageSelected
                             }
-                            .frame(maxWidth: .infinity)
                         }
                     }
                 }
